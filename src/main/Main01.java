@@ -23,7 +23,7 @@ public class Main01 {
 		try {
 			move = scn.nextLine();
 			robo.Mover(move);
-			if(robo.getCoord()[0] != food[0] || robo.getCoord()[1] != food[1]) {
+			if(!robo.isFoodFound(food)) {
 				MoveLoop(robo, food);
 			}
 			else {

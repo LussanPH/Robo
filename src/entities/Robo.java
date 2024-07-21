@@ -99,7 +99,7 @@ public class Robo {
 	
 	
 	public boolean isFoodFound(int[] food) {
-		if(this.coord == food) {
+		if(this.coord[0] == food[0] && this.coord[1] == food[1]) {
 			return true;
 		}
 		else {
