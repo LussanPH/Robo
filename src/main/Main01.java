@@ -1,10 +1,11 @@
 package main;
+
 import entities.Robo;
 import exception.MovimentoInvalidoException;
 
 import java.util.Scanner;
 public class Main01 {
-
+/**Só fechei os scanners */
 	public static void main(String[] args) {
 		Robo robo = new Robo("branco");
 		Scanner teclado = new Scanner(System.in);
@@ -13,6 +14,7 @@ public class Main01 {
 		food[1] = teclado.nextInt();
 		teclado.nextLine();
 		MoveLoop(robo, food);
+        teclado.close();
 
 	}
 	
@@ -22,7 +24,22 @@ public class Main01 {
 		System.out.printf("(%d,%d)", robo.getCoord()[0], robo.getCoord()[1]);
 		try {
 			move = scn.nextLine();
-			robo.Mover(move);
+            /**Esses if e elif é para caso o usuário digitar um número em vez de String */
+            if(move.charAt(0) == '1'){
+                robo.Mover(1);
+            }
+            else if(move.charAt(0) == '2'){
+                robo.Mover(2);
+            }
+            else if(move.charAt(0) == '3'){
+                robo.Mover(3);
+            }
+            else if(move.charAt(0) == '4'){
+                robo.Mover(4);
+            }
+            else{
+                robo.Mover(move);
+            }
 			if(!robo.isFoodFound(food)) {
 				MoveLoop(robo, food);
 			}
@@ -35,7 +52,7 @@ public class Main01 {
 			System.out.println(mie.getMessage());
 			MoveLoop(robo, food);
 		}
-		
+		scn.close();
 	}
 
 }
